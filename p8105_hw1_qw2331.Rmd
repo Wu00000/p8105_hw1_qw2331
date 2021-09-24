@@ -1,7 +1,5 @@
 ---
 title: "p8105_hw1_qw2331"
-author: "Qihang Wu"
-date: "Sep 24, 2021"
 output: github_document
 ---
 
