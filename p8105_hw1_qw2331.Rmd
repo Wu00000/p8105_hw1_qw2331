@@ -5,17 +5,27 @@ output: github_document
 
 I'm an R Markdown document! 
 
-# Section 1
+# Problem 1
 
-Here's a **code chunk** that samples from 
-a _normal distribution_:
+import necessary packages
 
 ```{r}
-samp = rnorm(100)
-length(samp)
+library(tibble)
 ```
 
-# Section 2
 
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
+create a sequence of variables first
+
+```{r}
+sample = rnorm(10)
+logic_vector = c(sample > 0)
+char_vector = vector("character", length=10)
+f_vector = factor(c("a", "a", "b", "c", "b", "c", "a", "b", "b", "c"))
+```
+
+Form a data frame using the above variables
+
+```{r}
+tibble(sample, logic_vector, char_vector, f_vector)
+```
+
