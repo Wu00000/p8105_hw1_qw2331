@@ -27,7 +27,7 @@ vec_factor <- factor(c("a", "a", "b", "c", "b", "c", "a", "b", "b", "c"))
 ```
 
 
-Form a data frame using the *`tibble`* function and display
+Form a data frame using the **`tibble`** function and display
 
 ```{r}
 mydataframe <-  tibble(
@@ -40,7 +40,7 @@ mydataframe
 ```
 
 
-Calculate the mean of each variable using the *`pull`* function
+Calculate the mean of each variable using the **`pull`** function
 
 ```{r warning = FALSE}
 for (i in names(mydataframe)) {
@@ -49,11 +49,27 @@ for (i in names(mydataframe)) {
 ```
 
 
-Apply the `as.numeric` function to the logical, character and factor variables
+Apply the **`as.numeric`** function to the logical, character and factor variables
 
 ```{r results = "hide"}
 for (i in names(mydataframe)[c(2:4)]) {
   cat("Converting", i, "to", as.numeric(pull(mydataframe, i)), "\n")
 }
 ```
+
+
+## Problem 2
+
+Install a package containing the `penguins` dataset and load the dataset
+
+```{r}
+data("penguins", package =  "palmerpenguins")
+```
+
+
+A short description of the dataset:  
++ The names of this dataset are *``r names(penguins)``*
++ The size of this dataset is ``r nrow(penguins)`` rows and ``r ncol(penguins)`` columns  
++ The mean flipper length is ``r mean(pull(penguins, "flipper_length_mm"), na.rm = TRUE)``
+
 
