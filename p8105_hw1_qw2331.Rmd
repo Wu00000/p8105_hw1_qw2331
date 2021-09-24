@@ -18,6 +18,8 @@ library(tidyverse)
 Create a sequence of variables first
 
 ```{r}
+set.seed(1234)
+
 vec_numeric <-  rnorm(10)
 vec_logic <-  c(vec_numeric > 0)
 vec_char <-  vector("character", length = 10)
@@ -42,7 +44,16 @@ Calculate the mean of each variable using the *`pull`* function
 
 ```{r warning = FALSE}
 for (i in names(mydataframe)) {
-  print(mean(pull(mydataframe, i))) 
+  cat("The mean of", i, "is ", mean(pull(mydataframe, i)), "\n")
+}
+```
+
+
+Apply the `as.numeric` function to the logical, character and factor variables
+
+```{r results = "hide"}
+for (i in names(mydataframe)[c(2:4)]) {
+  cat("Converting", i, "to", as.numeric(pull(mydataframe, i)), "\n")
 }
 ```
 
