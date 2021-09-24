@@ -72,4 +72,19 @@ A short description of the dataset:
 + The size of this dataset is ``r nrow(penguins)`` rows and ``r ncol(penguins)`` columns  
 + The mean flipper length is ``r mean(pull(penguins, "flipper_length_mm"), na.rm = TRUE)``
 
+Make a scatterplot of `flipper_length_mm` (y) vs `bill_length_mm` (x)
+
+```{r warning = FALSE}
+ggplot(penguins,
+       aes(bill_length_mm, flipper_length_mm, color = species)
+       ) + geom_point()
+```
+
+
+Export the scatter plot using **`ggsave`** function
+
+```{r warning = FALSE}
+ggsave("myplot_penguins.png")
+```
+
 
